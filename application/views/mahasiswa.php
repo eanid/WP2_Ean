@@ -23,7 +23,7 @@
     <td><?php echo $d['nama']; ?></td>
     <td><?php echo $d['kelas']; ?></td>
     <td>
-    <a href="http://creads.ean/datamhs/view/<?php echo $d['nim']; ?>">detail</a> ||
+    <a href="<?php echo site_url("datamhs/".$d['nim']) ?>">detail</a> ||
     <a href="#">edit</a> ||
     <a href="#">hapus</a>
     </center></td>
