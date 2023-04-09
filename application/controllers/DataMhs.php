@@ -11,15 +11,13 @@ class DataMhs extends CI_Controller{
         $data= $this->Mahasiswa_model->getMahasiswa();
         $this->load->view('mahasiswa', array('data' => $data));
     }
-
+    
     public function view($slug = NULL)
     {
-        $data= $this->Mahasiswa_model->getMahasiswaByNim($slug);
-        foreach($data as $d){
-            echo "<a href='http://creads.ean/datamhs'><button>back</button></a><br />";
-            echo "Nim mahasiswa : ".$d['nim']."<br />";
-            echo "Nama mahasiswa : ".$d['nama']."<br />";
-            echo "Kelas mahasiswa : ".$d['kelas']."<br />";
-            }
+    
+        $data['data'] = $this->Mahasiswa_model->getMahasiswaByNim($slug);
+        $this->load->view('mahasiswa_detail', $data);
+        // echo var_dump($data->nama);
+
     }
 }
