@@ -9,7 +9,7 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 
-	<title><?php echo lang('login_heading'); ?></title>
+	<title>Login Creads</title>
 
 	<!-- Custom fonts for this template-->
 	<link href="<?php echo base_url("sbadmin/") ?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
