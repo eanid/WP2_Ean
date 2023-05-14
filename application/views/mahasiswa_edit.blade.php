@@ -56,21 +56,15 @@
 
             <div class="card-body">
 
-                <form action="<?= site_url('taskbsi/store')  ?>" method="post">
+            <form action="<?= site_url('taskbsi/update/'.$student->nim)  ?>" method="post">
                     <div class="form-group">
-                        <input type="text" class="form-control form-control-user" id="name" name="name" placeholder="Nama Mahasiswa">
+                        <input type="text" class="form-control form-control-user" id="name" name="name" placeholder="Nama Mahasiswa" value="<?= $student->name ?>">
                     </div>
                     <div class="form-group">
-                        <input type="number" class="form-control form-control-user" id="nim" name="nim" placeholder="Nim Mahasiswa">
+                        <input type="number" class="form-control form-control-user" id="nim" name="nim" placeholder="Nim Mahasiswa"  value="<?= $student->nim ?>">
                     </div>
                     <div class="form-group">
-                        <select name="class" class="form-control form-control-user">
-                            <option value="">Pilih Kelas</option>
-                            <?php
-                            foreach ($class as $c) { ?>
-                                <option value="<?= $c['id']; ?>"><?= $c['class_name']; ?></option>
-                            <?php } ?>
-                        </select>
+                        <?= form_dropdown('class', $class_dropdown, $student->class, 'class="form-control" id="class" required');  ?>
                     </div>
                     <button type="submit" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Tambah</button>
 
@@ -106,7 +100,7 @@
             <div class="col-6">
                 <h2>Tambah Kelas</h2>
 
-                <form action="<?= site_url('taskbsi/add_class')  ?>" method="post">
+                <form action="<?= site_url('taskbsi/update/')  ?>" method="post">
                     <div class="form-group">
                         <input type="text" class="form-control form-control-user" id="class_name" name="class_name" placeholder="Nama Kelas">
                     </div>

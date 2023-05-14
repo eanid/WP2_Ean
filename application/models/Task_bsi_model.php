@@ -30,9 +30,10 @@ class Task_bsi_model extends CI_Model
             "nim" => $this->input->post('nim'),
             "class" => $this->input->post('class'),
         );
-        return $this->db->insert('mahasiswa', $data);
+        $this->db->insert('mahasiswa', $data);
+        return $this->db->insert_id();
     }
-    public function UpdateMahasiswa()
+    public function UpdateMahasiswa($id)
     {
         $data = array(
             "name" => $this->input->post('name'),
@@ -73,4 +74,23 @@ class Task_bsi_model extends CI_Model
     {
         return $this->db->delete('mahasiswa_class', array("id" => $id));
     }
+
+
+    public function selectClass()
+	{
+		$data = [];
+		$this->db->from('mahasiswa_class');		
+		$query = $this->db->get();
+		if ($query->num_rows() > 0)
+		{
+			$data[''] = '&mdash; Pilih Kelas &mdash;';
+			foreach ($query->result_array() as $row)
+			{
+				$data[$row['id']] = $row['class_name'] .'/'. $row['class_description'];
+			}
+		}
+		$query->free_result();  
+		return $data;	
+	}
+
 }
